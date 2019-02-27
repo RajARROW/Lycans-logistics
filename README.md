@@ -5,7 +5,7 @@ Lycans logistics is a BlockChain and IOT powered supply chain management system 
 
 Clone this repo into new project folder (e.g., `my-proj`).
 ```shell
-git clone https://github.com/RajARROW/Lycans-logistics my-proj
+git clone https://github.com/RajARROW/Lycans-logistics.git
 cd my-proj
 ```
 
