@@ -14,9 +14,11 @@ import { VerticalTimelineModule } from 'angular-vertical-timeline';
 import { CreateComponent } from './create/create.component';
 import { WaterWaysComponent } from './water-ways/water-ways.component';
 import { RoadWaysComponent } from './road-ways/road-ways.component';
-import {MatCheckboxModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule} from '@angular/material';
+import {MatCheckboxModule, MatListModule,
+  MatToolbarModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule} from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { BlockchainComponent } from './blockchain/blockchain.component';
 
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -25,6 +27,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { fqirebase } from '../environments/environment';
 import { APIcallService } from './apicall.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +37,18 @@ import { APIcallService } from './apicall.service';
     CreateComponent,
     WaterWaysComponent,
     RoadWaysComponent,
-    BlockchainComponent
+    BlockchainComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(fqirebase),
     HttpClientModule,
     AppRoutingModule,
+    MatListModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
     VerticalTimelineModule,
     MatCheckboxModule,
     MatInputModule,
@@ -49,6 +57,7 @@ import { APIcallService } from './apicall.service';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatSidenavModule,
     MatProgressSpinnerModule
   ],
   providers: [APIcallService, AngularFirestore],

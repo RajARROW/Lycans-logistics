@@ -1,0 +1,13 @@
+.example-container {
+  display: flex;
+  margin-top: 6%;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 30%;
+  border-block-start-style: solid;
+  border-block-end-style: solid;
+  border-block-start-width: 30px;
+  align-self: center;
+}

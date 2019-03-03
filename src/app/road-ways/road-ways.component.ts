@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { APIcallService } from '../apicall.service';
 import { Observable } from 'rxjs';
 import {trigger, transition, style, animate, query, stagger} from '@angular/animations';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+
 
 
 
@@ -27,9 +29,17 @@ import {trigger, transition, style, animate, query, stagger} from '@angular/anim
     ])
   ]
 })
+
+
 export class RoadWaysComponent implements OnInit {
 
   constructor(private api: APIcallService) { }
+
+
+  profileForm1 = new FormGroup({
+    email: new FormControl(''),
+    pass: new FormControl(''),
+  });
 
   // items = [];
   pageObser: Observable<any[]>;
@@ -37,9 +47,19 @@ export class RoadWaysComponent implements OnInit {
 
   pageObser1: Observable<any[]>;
   dataSource1: any;
+
+
+  pageObser2: Observable<any[]>;
+  dataSource2: any;
+
+  t = true;
+  name: any;
+
   ngOnInit() {
     this.pageObser = this.api.getdata();
     this.pageObser1 = this.api.getdata1();
+    this.pageObser2 = this.api.getdata2();
+
     this.showItems();
   }
 
@@ -58,6 +78,32 @@ export class RoadWaysComponent implements OnInit {
      // this.dataSource = this.dataSource.filteredData;
       console.log(this.dataSource1);
       });
+
+    this.pageObser2.subscribe(res => {
+
+      this.dataSource2 = res;
+      // this.dataSource = this.dataSource.filteredData;
+      console.log(this.dataSource2);
+      });
+  }
+
+  onSubmit1() {
+    // TODO: Use EventEmitter with form value
+
+    // const d = this.dataSource2.filter(item => item.email === this.profileForm1.value.email && item.pass === this.profileForm1.value.pass);
+
+    this.dataSource2.forEach(item => {
+
+      if(item.email === this.profileForm1.value.email && item.pass === this.profileForm1.value.pass){
+        this.name = item.name;
+        // console.log(d);
+        this.t = false;
+        return;
+      }
+    });
+    if(this.t){
+      console.log('sorry no user')
+    }
   }
 
   hideItems() {
@@ -66,7 +112,7 @@ export class RoadWaysComponent implements OnInit {
 
   wait1(item) {
 
-    this.api.updateTask(item, {roadways: true});
+    this.api.updateTask(this.name + item, {status: true});
 
   }
 }
