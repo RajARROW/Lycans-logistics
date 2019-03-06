@@ -5,16 +5,16 @@ import { CreateComponent } from './create/create.component';
 import { RoadWaysComponent } from './road-ways/road-ways.component';
 import { WaterWaysComponent } from './water-ways/water-ways.component';
 import { BlockchainComponent } from './blockchain/blockchain.component';
-import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
   // { path: 'track', component: TrackComponent},
-  { path: '', component: TrackComponent},
-  { path: 'create', component: CreateComponent},
-  { path: 'home', component: HomeComponent},
+  { path: 'track', component: TrackComponent},
+  { path: '', component: CreateComponent},
   { path: 'roadways', component: RoadWaysComponent},
   { path: 'waterways', component: WaterWaysComponent},
   { path: 'blockchain', component: BlockchainComponent}
+
 ];
 
 @NgModule({
