@@ -24,6 +24,9 @@ export class CreateComponent implements OnInit {
   pageObser2: Observable<any[]>;
   dataSource2: any;
 
+  pageObser3: Observable<any[]>;
+  dataSource3: any;
+
   id: any;
   data: any;
   profileForm = new FormGroup({
@@ -41,6 +44,8 @@ export class CreateComponent implements OnInit {
     this.pageObser = this.api.getdata();
     this.pageObser1 = this.api.getdata1();
     this.pageObser2 = this.api.getdata2();
+    this.pageObser3 = this.api.getblockchain();
+    this.api.contract();
     this.hello();
   }
   hello() {
@@ -66,6 +71,14 @@ export class CreateComponent implements OnInit {
       this.dataSource2 = res;
       console.log(this.dataSource2);
       // this.login();
+
+      });
+
+    this.pageObser3.subscribe(res => {
+
+      this.dataSource3 = res;
+      console.log(this.dataSource3);
+      this.login();
 
       });
   }
@@ -100,14 +113,21 @@ export class CreateComponent implements OnInit {
 
   login() {
 
-    this.dataSource2.forEach(element => {
-      if(element.id === 'a' && element.pass === 'a') {
+    // this.dataSource2.forEach(element => {
+    //   if(element.id === 'a' && element.pass === 'a') {
 
-        console.log('wellcone to ww');
-      }
+    //     console.log('wellcone to ww');
+    //   }
+
+    // });
+
+    let v =0;
+    this.dataSource3.forEach(element => {
+      v++;
 
     });
 
+    console.log(this.dataSource3[(v - 1)].Key);
   }
 
   st(){

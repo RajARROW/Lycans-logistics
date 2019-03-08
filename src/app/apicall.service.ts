@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map} from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 
 export class APIcallService {
   private itemsCollection: AngularFirestoreCollection<any>;
@@ -18,10 +20,13 @@ export class APIcallService {
   items2: Observable<any>;
   query1: Observable<any>;
 
+  blockchaindata: Observable<any>;
+
   private taskDoc: AngularFirestoreDocument<any>;
 
 
-  constructor(private afs: AngularFirestore) {
+
+  constructor(private afs: AngularFirestore, private  httpClient: HttpClient) {
 
     this.itemsCollection = this.afs.collection<any>('items');
     this.items = this.itemsCollection.valueChanges();
@@ -58,6 +63,46 @@ export class APIcallService {
     );
 
   }
+
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
+  }
+
+//   public getblockchain(){
+
+//     console.log(this.httpClient.get('http://localhost:3000/blockchain'));
+
+// }
+
+  public getblockchain(): Observable<any> {
+    return this.httpClient.get('http://localhost:3000/blockchain').pipe(
+      map(this.extractData));
+  }
+
+  public contract() {
+    this.httpClient.post('http://localhost:3000/addCoffee',{
+      "size": "LARGE",
+      "roast": "DARK",
+      "batchState": "READY_FOR_DISTRIBUTION",
+      "grower": "Grower-0202",
+      "transactionId": "txId",
+      "timestamp": "4:17PM, Feb 19. 2019"
+    }
+    )
+.subscribe(
+data  => {
+console.log('POST Request is successful ', data);
+},
+error  => {
+
+console.log('Error', error);
+
+}
+
+);
+  }
+
 
   public addItem(item: any, id: any, status: any) {
 
