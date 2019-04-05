@@ -1,19 +1,78 @@
-<div class="row" [@listAnimation]="1">
-    <div class="col-1" *ngFor="let item of dataSource">
+<div>
+    <div>
 
         <mat-card>
             <mat-card-header>
-                <h2>Create Contract</h2>
+                <h2>Transfer Auth</h2>
             </mat-card-header>
             <mat-card-content>
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Input">
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-actions>
+              <form [formGroup]="profileForm1" (ngSubmit)="onSubmit1()">
 
-                <button mat-raised-button color="primary" (click)="wait1(item.id)" > Create Contract</button>
-            </mat-card-actions>
+                <mat-form-field class="example-full-width">
+                  <input
+                    matInput
+                    placeholder="batchId"
+                    type="text"
+                    formControlName="batchId"
+                  />
+                </mat-form-field>
+                <br />
+
+                <mat-label>From</mat-label>
+                <mat-select formControlName="from">
+                  <mat-option value="Grower">Grower</mat-option>
+                  <mat-option value="Trader">Trader</mat-option>
+                  <mat-option value="Shipper">Shipper</mat-option>
+                  <mat-option value="Retailer">Retailer</mat-option>
+                  <mat-option value="Regulator">Regulator</mat-option>
+                  </mat-select>
+                <br />
+
+                <mat-label>To</mat-label>
+                <mat-select formControlName="to">
+                  <mat-option value="Grower">Grower</mat-option>
+                  <mat-option value="Trader">Trader</mat-option>
+                  <mat-option value="Shipper">Shipper</mat-option>
+                  <mat-option value="Retailer">Retailer</mat-option>
+                  <mat-option value="Regulator">Regulator</mat-option>
+                  </mat-select>
+                <br />
+
+                <mat-form-field class="example-full-width">
+                  <input
+                    matInput
+                    placeholder="From IoT"
+                    type="text"
+                    formControlName="fromIoT"
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field class="example-full-width">
+                  <input
+                    matInput
+                    placeholder="To IoT"
+                    type="text"
+                    formControlName="toIoT"
+                  />
+                </mat-form-field>
+                <br />
+
+                <button mat-raised-button color="primary" type="submit">
+                  Transfer
+                </button>
+              </form>
+            </mat-card-content>
+            <mat-card-content>
+
+              <button mat-raised-button color="primary" (click)="demo()">
+                Temp Demo
+              </button>
+
+              <button mat-raised-button color="primary" (click)="demo1()">
+                  Solution demo
+                </button>
+
+            </mat-card-content>
             </mat-card>
 
     </div>

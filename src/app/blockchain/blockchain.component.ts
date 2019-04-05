@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {trigger, transition, style, animate, query, stagger} from '@angular/animations';
+import { Observable } from 'rxjs';
+import { APIcallService } from '../apicall.service';
+
 
 @Component({
   selector: 'app-blockchain',
@@ -25,21 +28,30 @@ import {trigger, transition, style, animate, query, stagger} from '@angular/anim
 })
 export class BlockchainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: APIcallService) { }
 
-  items = [];
+  pageObser3: Observable<any[]>;
+  dataSource3: any;
+
+
+  items: any;
   ngOnInit() {
-    this.showItems();
+
+    this.pageObser3 = this.api.getblockchain();
+    this.hello();
   }
+  hello() {
 
+    this.pageObser3.subscribe(res => {
 
+      this.dataSource3 = res;
+     // this.dataSource = this.dataSource.filteredData;
+      console.log(this.dataSource3);
+      });
 
-  showItems() {
-    this.items = [0,1,2,3,4];
-  }
+    //this.showItems();
 
-  hideItems() {
-    this.items = [];
-  }
+    }
+
 }
 

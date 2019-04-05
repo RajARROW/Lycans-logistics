@@ -1,71 +1,67 @@
-<section id=timeline>
-	<h1>A Flexbox Timeline</h1>
-	<p class="leader">All cards must be the same height and width for space calculations on large screens.</p>
-	<div class="demo-card-wrapper">
-		<div class="demo-card demo-card--step{{v}}">
-			<div class="head">
-				<div class="number-box">
-					<span>01</span>
-				</div>
-				<h2><span class="small">Subtitle</span> Technology</h2>
-			</div>
-			<div class="body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
-			</div>
-		</div>
+<div>
+    <mat-card>
+        <mat-card-content>
+          <form [formGroup]="profileForm" (ngSubmit)="hello()">
+            <mat-form-field >
+              <input
+                matInput
+                placeholder="Email address"
+                type="text"
+                formControlName="email"
+              />
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">
+              Register Company
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
 
-		<div class="demo-card demo-card--step2">
-			<div class="head">
-				<div class="number-box">
-					<span>02</span>
-				</div>
-				<h2><span class="small">Subtitle</span> Confidence</h2>
-			</div>
-			<div class="body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
-			</div>
-		</div>
+</div>
 
-		<div class="demo-card demo-card--step3">
-			<div class="head">
-				<div class="number-box">
-					<span>03</span>
-				</div>
-				<h2><span class="small">Subtitle</span> Adaptation</h2>
-			</div>
-			<div class="body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
-			</div>
-		</div>
+    <div class="col-1" *ngIf="dataSource3 != null">
 
-		<div class="demo-card demo-card--step4">
-			<div class="head">
-				<div class="number-box">
-					<span>04</span>
-				</div>
-				<h2><span class="small">Subtitle</span> Consistency</h2>
-			</div>
-			<div class="body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
-			</div>
-		</div>
+        <mat-card>
+            <mat-card-header>
+                <div *ngIf="dataSource3.grower != null">
 
-		<div class="demo-card demo-card--step5">
-			<div class="head">
-				<div class="number-box">
-					<span>05</span>
-				</div>
-				<h2><span class="small">Subtitle</span> Conversion</h2>
-			</div>
-			<div class="body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
-			</div>
-		</div>
+                    <h2>grower:{{grower}}</h2>
+                    <h3>Address:{{gadd}}</h3>
+                    <h3>organization:{{gorg}}</h3>
+                    <h2>trader:{{trader}}</h2>
+                    <h3>Address:{{tadd}}</h3>
+                    <h3>organization:{{torg}}</h3>
 
-	</div>
-</section>
+                </div>
+                </mat-card-header>
+                <mat-card-content>
+                  <div *ngIf="dataSource3.afterTaste == 'Is Critical for at 30 degree should be 20 degree'">
+
+                    <h2>Cause by: {{ tempdata }} at {{dataSource3.timestamp | date:'hh:mm:ss a' }} </h2>
+                    <h3>Detail of cause:{{ st }}</h3>
+
+                  </div>
+
+                  <div *ngIf="dataSource3.acidity == 'Was Critical for 10 min at 30 degree'">
+
+                      <h2>Resolved by: {{ tempdata }} at {{dataSource3.body | date:'hh:mm:ss a'}} </h2>
+                      <h3>Detail of Solution:{{ dataSource3.acidity }}</h3>
+
+                    </div>
+
+                </mat-card-content>
+            <mat-card-content>
+
+                <button mat-raised-button color="primary" (click)="alldata()">
+                    More Data
+                  </button>
+
+                  <div *ngIf="ve">
+                    <h4>{{dataSource3 | json}}</h4>
+                  </div>
+
+            </mat-card-content>
+            </mat-card>
+
+    </div>
+

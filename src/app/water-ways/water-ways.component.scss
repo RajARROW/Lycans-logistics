@@ -1,10 +1,4 @@
-.row {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5px;
-  padding: 6%;
-}
+
 
 .example-container {
   display: flex;
@@ -19,15 +13,24 @@
   border-block-start-width: 30px;
   align-self: center;
 }
+.example-full-width {
+  width: 98%;
+}
 
-// /* content */
-// .row div {
-//   padding: 3%;
-//   text-align: right;
-// }
+.example-margin {
+  margin: 0 10px;
+}
 
-/* 1/12 */
-.col-1 {
-  width: 25%;
-  padding: 2%;
+.a{
+  padding: 50%;
+}
+
+.b{
+  padding: 90%;
+}
+
+
+.example-button-toggle-label {
+  display: inline-block;
+  margin: 16px;
 }

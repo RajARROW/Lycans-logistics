@@ -7,6 +7,16 @@
         </mat-card-header>
         <mat-card-content>
           <form [formGroup]="profileForm1" (ngSubmit)="onSubmit1()">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="$class">
+              <mat-option value="Grower">Grower</mat-option>
+              <mat-option value="Trader">Trader</mat-option>
+              <mat-option value="Shipper">Shipper</mat-option>
+              <mat-option value="Retailer">Retailer</mat-option>
+              <mat-option value="Regulator">Regulator</mat-option>
+            </mat-select>
+            <br />
+
             <mat-form-field class="example-full-width">
               <input
                 matInput
@@ -29,9 +39,29 @@
             <mat-form-field class="example-full-width">
               <input
                 matInput
-                placeholder="Company name"
+                placeholder="ID"
                 type="text"
-                formControlName="name"
+                formControlName="Id"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="organization"
+                type="text"
+                formControlName="organization"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Address"
+                type="text"
+                formControlName="address"
               />
             </mat-form-field>
             <br />
@@ -56,7 +86,7 @@
             <mat-form-field class="example-full-width">
               <input
                 matInput
-                placeholder="Input"
+                placeholder="ID"
                 type="text"
                 formControlName="firstName"
               />
@@ -65,19 +95,181 @@
             <mat-form-field class="example-full-width">
               <input
                 matInput
-                placeholder="Input"
+                placeholder="Data"
                 type="text"
                 formControlName="lastName"
               />
             </mat-form-field>
-            <br />
+
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Input" />
+              <input
+                matInput
+                placeholder="Grower"
+                type="text"
+                formControlName="grower"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="trader"
+                type="text"
+                formControlName="trader"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_Invoice_no"
+                type="text"
+                formControlName="PL_Invoice_no"
+              />
             </mat-form-field>
             <br />
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Input" />
+              <input
+                matInput
+                placeholder="PL_IssueDate"
+                type="text"
+                formControlName="PL_IssueDate"
+              />
             </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_ICO_no"
+                type="text"
+                formControlName="PL_ICO_no"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_ICO_Lot"
+                type="text"
+                formControlName="PL_ICO_Lot"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_ICO_no"
+                type="text"
+                formControlName="PL_ICO_no"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_FDA_NO"
+                type="text"
+                formControlName="PL_FDA_NO"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_Bill_of_Lading_No"
+                type="text"
+                formControlName="PL_Bill_of_Lading_No"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_LoadedVessel"
+                type="text"
+                formControlName="PL_LoadedVessel"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_VesselVoyage_No"
+                type="text"
+                formControlName="PL_VesselVoyage_No"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_Container_No"
+                type="text"
+                formControlName="PL_Container_No"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_Seal_no"
+                type="text"
+                formControlName="PL_Seal_no"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="PL_timestamp"
+                type="text"
+                formControlName="PL_timestamp"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="batchId"
+                type="text"
+                formControlName="batchId"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="transactionId"
+                type="text"
+                formControlName="transactionId"
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="timestamp"
+                type="text"
+                formControlName="timestamp"
+              />
+            </mat-form-field>
+            <br />
+
 
             <button mat-raised-button color="primary" type="submit">
               Create Contract
@@ -128,7 +320,7 @@
                   </svg>
                 </div>
                 <br />
-                <p >{{ item.name }}</p>
+                <p>{{ item.name }}</p>
               </th>
             </table>
           </mat-card-content>
@@ -138,17 +330,62 @@
   </mat-tab>
 
   <mat-tab label="Track Activity">
-    <div *ngFor="let item of dataSource">
-      <div class="example-container">
-        <mat-card>
-          <mat-card-header>
-            <h2>{{ item.id }}</h2>
-          </mat-card-header>
-          <mat-card-content>
-            {{ item.firstName }}
-          </mat-card-content>
-        </mat-card>
+    <div *ngIf="!visible">
+      <div *ngFor="let item of dataSource">
+        <div class="example-container">
+          <mat-card>
+            <mat-card-header>
+              <h2>{{ item.id }}</h2>
+            </mat-card-header>
+            <mat-card-content>
+              {{ item.firstName }}
+            </mat-card-content>
+            <mat-card-footer>
+              <br />
+
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="mapdisplay(item)"
+              >
+                Track
+              </button>
+            </mat-card-footer>
+          </mat-card>
+        </div>
       </div>
+    </div>
+
+    <div *ngIf="visible">
+      <agm-map [zoom]="11" [latitude]="lat" [longitude]="lng">
+        <agm-marker
+          [iconUrl]="
+            'https://png.icons8.com/material/50/000000/car-top-view.png'
+          "
+          [latitude]="lat"
+          [longitude]="lng"
+        >
+          <agm-info-window>
+            <h3><strong>Howdy!</strong></h3>
+            <p>You are here!</p>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+
+      <iframe
+        width="450"
+        height="260"
+        style="border: 1px solid #cccccc;"
+        src="https://thingspeak.com/channels/721056/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+      ></iframe>
+
+      <iframe
+        width="450"
+        height="260"
+        style="border: 1px solid #cccccc;"
+        src="https://thingspeak.com/channels/721056/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+      ></iframe>
     </div>
   </mat-tab>
 </mat-tab-group>

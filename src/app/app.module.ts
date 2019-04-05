@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule} from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,8 @@ import { RoadWaysComponent } from './road-ways/road-ways.component';
 import {MatCheckboxModule, MatListModule,
   MatToolbarModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule} from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -40,6 +43,10 @@ import { APIcallService } from './apicall.service';
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAa-klqJgaM1eFd_tf2fjNlKqdS9Bav7bs',
+      language: localStorage && localStorage.gml || 'en'
+    }),
     AngularFireModule.initializeApp(fqirebase),
     HttpClientModule,
     AppRoutingModule,
@@ -50,7 +57,9 @@ import { APIcallService } from './apicall.service';
     MatCheckboxModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
     MatCardModule,
+    MatSnackBarModule,
     MatTabsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
